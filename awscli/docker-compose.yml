@@ -1,0 +1,10 @@
+version: '2.0'
+services:
+  aws-cli3:
+    volumes:
+      - /home
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - '8082:80'

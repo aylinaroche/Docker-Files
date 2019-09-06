@@ -1,0 +1,5 @@
+
+docker run --rm -ti \
+-v /home/aylin/Documentos/CURSO/DOCKER/Exercise2/credentials:/root/.aws/credentials \
+awscli s3 ls
+
