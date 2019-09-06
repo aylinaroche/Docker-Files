@@ -1,0 +1,7 @@
+sudo docker run -ti \
+    -v /var/run/:/var/run/ \
+    --privileged  \
+    d2 /bin/sh
+
+
+NOTE: Docker files are located in the directory "/var/run/"

@@ -1,0 +1,24 @@
+**********************************************************************************
+MONGODB IN DOCKER WITH ENVIROMENT VARIABLES
+**********************************************************************************
+docker pull mongo
+docker run -d -p 27017:27107 --name mongoDB1 \
+    -e MONGO_INITDB_ROOT_USERNAME=adminaylin \
+    -e MONGO_INITDB_ROOT_PASSWORD=1234 \
+    mongo
+
+
+mongo --port 27017 -u "adminaylin" -p "1234" --authenticationDatabase "admin"
+
+
+**********************************************************************************
+VOLUME IN NGINX SERVER
+**********************************************************************************
+
+docker run --name nginx1 -d -p 8080:80 nginx
+
+docker run -d -it -p 8080:80 -v $(pwd):/myVolume nginx
+
+cp /myVolume/index.html /usr/share/nginx/html
+
+docker run -v $(pwd):/src -it nginx -name nginx15

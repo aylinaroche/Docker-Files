@@ -1,0 +1,2 @@
+
+docker run -ti f1 /bin/sh
