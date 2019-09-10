@@ -1,3 +1,3 @@
-FROM redis
+FROM redis as redis
 
-COPY requirements.txt requirements.txt
+#COPY requirements.txt requirements.txt

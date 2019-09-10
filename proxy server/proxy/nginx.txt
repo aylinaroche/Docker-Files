@@ -1,0 +1,21 @@
+http {
+  server {
+    server_name myNginxProxy.com;
+
+    location /nginx {
+      proxy_pass http://localhost:8082;
+      rewrite ^/nginx(.*)$ $1 break;
+    }
+
+    location /flask {
+      proxy_pass http://localhost:5000;
+      rewrite ^/flask(.*)$ $1 break;
+    }
+
+    listen 8082;
+    listen 5000;
+    ssl_certificate /etc/letsencrypt/live/myNginxProxy.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/myNginxProxy.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+  }
+}

@@ -1,13 +1,35 @@
 version: '2.0'
 services:
   flask:
+    hostname: flask
     build: 
       context: ./flask
     ports:
      - "5000:5000"
     depends_on:
      - redis
+    restart: always
+
   redis:
+    hostname: redis
     build: 
       context: ./redis
- 
+    
+  nginx:
+    hostname: nginx
+    build: 
+      context: ./nginx
+    ports:
+     - "8082:80"
+    restart: always
+
+  proxy:
+    hostname: proxy
+    build: 
+      context: ./proxy
+    ports:
+     - "8081:8081"
+    restart: always 
+    depends_on:
+     - flask
+     - nginx

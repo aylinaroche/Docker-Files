@@ -18,11 +18,11 @@
 
 ### **Delete all images**
 
-> docker rmi -f \$(docker images -q)
+> docker rmi -f $(docker images -q)
 
 ### **Delete all containers**
 
-> docker rm \$(docker ps -a -q)
+> docker rm $(docker ps -a -q)
 >
 > #### Parameters
 >
@@ -31,7 +31,7 @@
 ### **Create an image**
 
 > docker build -t "crearzip" .
-> s
+> 
 
 ### **List all containers**
 
